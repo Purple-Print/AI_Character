@@ -105,7 +105,7 @@ def extract_facedata(path):
             
             data = np.array(left_chin, center_chin, right_chin, 
                             a1R,a1L, a2R,a2L, a3R,a3L, a4R,a4L, a5R,a5L, a6R,a6L, a7R,a7L,
-                            d2/d1, d1/d3, d2/d3, d1/d5, d4_l/d6, d4_r/d6, d6/d1, d5/d2, d4_l/d5, d4_r/d6, d7/d6)
+                            d2/d1, d1/d3, d2/d3, d1/d5, d6/d5, d4_l/d6, d4_r/d6, d6/d1, d5/d2, d4_l/d5, d4_r/d6, d7/d6)
             return data
         
 def faceshape(path):
