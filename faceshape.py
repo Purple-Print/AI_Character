@@ -41,6 +41,7 @@ def extract_facedata(path):
             # Print and draw face mesh landmarks on the image.
             if not results.multi_face_landmarks:
                 print('Undetected')
+                return 'Undetected'
             # annotated_image = image.copy()
             mesh_dot = results.multi_face_landmarks[0].landmark
             top_x, top_y = mesh_dot[10].x , mesh_dot[10].y
