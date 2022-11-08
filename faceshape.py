@@ -28,8 +28,6 @@ def distance(p1, p2):
 def extract_facedata(path):
     mp_face_mesh = mp.solutions.face_mesh
 
-    path = '이미지'
-
     with mp_face_mesh.FaceMesh(static_image_mode=True,
                                 max_num_faces=1,
                                 refine_landmarks=True,
@@ -103,14 +101,19 @@ def extract_facedata(path):
             right_chin = getAngle(r_mid_xy,r_bot_xy,bot_xy,"CCW")
             center_chin = getAngle(r_bot_xy3,bot_xy,l_bot_xy3,"CCW")
             
-            data = np.array(left_chin, center_chin, right_chin, 
+            data = np.array([left_chin, center_chin, right_chin, 
                             a1R,a1L, a2R,a2L, a3R,a3L, a4R,a4L, a5R,a5L, a6R,a6L, a7R,a7L,
-                            d2/d1, d1/d3, d2/d3, d1/d5, d6/d5, d4_l/d6, d4_r/d6, d6/d1, d5/d2, d4_l/d5, d4_r/d6, d7/d6)
+                            d2/d1, d1/d3, d2/d3, d1/d5, d6/d5, d4_l/d6, d4_r/d6, d6/d1, d5/d2, d4_l/d5, d4_r/d6, d7/d6])
             return data
         
 def faceshape(path):
-    tmp = extract_facedata(path)
-    tmp = tmp.reshape(1,-1)
-    svm_load_model = joblib.load('rbf_face_class_v4.pkl')
-    pred = svm_load_model.predict(tmp)
+    img = extract_facedata(path)
+    img = img.reshape(1,-1)
+    svm_load_model = joblib.load('AI_Character/rbf_face_class_v4.pkl')
+    pred = svm_load_model.predict(img)
+    print(pred[0])
     return pred[0]
+
+faceshape('AI_Character/ssibal.jpg')
+# cv2.imread('AI_Character/ssibal.jpg')
+
