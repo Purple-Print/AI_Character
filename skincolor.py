@@ -28,11 +28,6 @@ def select_color(R,G,B):
         'color4': np.sum(color*preset4)/(color_norm*preset4_norm)
 
     }
-    # similarity_preset1 = np.sum(color*preset1)/(color_norm*preset1_norm)
-    # similarity_preset2 = np.sum(color*preset2)/(color_norm*preset2_norm)
-    # similarity_preset3 = np.sum(color*preset3)/(color_norm*preset3_norm)
-    # similarity_preset4 = np.sum(color*preset4)/(color_norm*preset4_norm)
-
     return max(similar_color)
 
 def skin_detect(path):
