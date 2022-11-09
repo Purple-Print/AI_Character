@@ -106,7 +106,7 @@ def extract_facedata(path):
                             d2/d1, d1/d3, d2/d3, d1/d5, d6/d5, d4_l/d6, d4_r/d6, d6/d1, d5/d2, d4_l/d5, d4_r/d6, d7/d6])
             return data
         
-def faceshape(path):
+def face_classifi(path):
     img = extract_facedata(path)
     img = img.reshape(1,-1)
     svm_load_model = joblib.load('AI_Character/rbf_face_class_v4.pkl')
@@ -114,6 +114,4 @@ def faceshape(path):
     print(pred[0])
     return pred[0]
 
-faceshape('AI_Character/ssibal.jpg')
-# cv2.imread('AI_Character/ssibal.jpg')
 

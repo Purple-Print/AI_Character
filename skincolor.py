@@ -44,7 +44,6 @@ def skin_detect(path):
         image = cv2.imread(path)
                         # Convert the BGR image to RGB before processing.
         results = face_mesh.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-        annotated_image = image.copy()
         # Print and draw face mesh landmarks on the image.
         if not results.multi_face_landmarks:
             pass
